@@ -57,15 +57,15 @@ class MainView(CreateView): # new
     success_url = reverse_lazy('main')
     def get(self,request):
         anketas =  Anketa.objects.all()
-        #soft_cat = Soft_categori.objects.all()
+        soft_cat = Soft_categori.objects.all()
         lang_cat = Lang_categori.objects.all()
         form = OtklForm
         context = {
             'anketas':anketas,
-            #'soft_cat':soft_cat,
+            'soft_cat':soft_cat,
             'lang_cat':lang_cat,
             'form':form,
-            #'soft_cat_selected': 0,
+            'soft_cat_selected': 0,
             'lang_cat_selected': 0,
         }
         return render(request, 'main/mainsheet.html',context)
